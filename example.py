@@ -1,3 +1,4 @@
+import galois
 GF = galois.GF(2)
 
 #Define Polynomials 
