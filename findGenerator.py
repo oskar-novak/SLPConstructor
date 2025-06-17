@@ -1,3 +1,8 @@
+import galois
+import numpy as np
+import itertools
+from itertools import permutations
+
 
 def findGenerator(H,G):
 
