@@ -161,45 +161,5 @@ def conjugate(matrix,G):
     return output
     
     
-def rankMat(A):
-    
-    A=A.tolist()
-    
-
-    n=len(A[0])
-    
-    rank = 0
-    for col in range(n):
-        
-        j=0
-        
-        rows = []
-        
-        while j<len(A):
-            
-            if A[j][col] == 1:
-                
-                rows += [j]
-            j+=1
-            
-        if len(rows) >= 1:
-            
-            for c in range(1,len(rows)):
-                
-                for k in range(n):
-                    
-                    A[rows[c]][k] = (A[rows[c]][k] + A[rows[0]][k])%2
-                    
-            A.pop(rows[0])
-            
-            rank += 1
-            
-    for row in A:
-        
-        if sum(row)>0:
-            
-            rank += 1
-            
-    return rank  
 
 
