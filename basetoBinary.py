@@ -3,40 +3,6 @@ import numpy as np
 import itertools
 from itertools import permutations
 
-
-def get_matrix_minor(arr, i, j):
-    
-    return np.delete(np.delete(arr, i, axis=0), j, axis=1)
-
-
-
-
-def getMatrixDeterminant(m):
-    
-    GF=galois.GF(2)
-    
-    #base case for 2x2 matrix
-    if len(m) == 2:
-        
-        return m[0,0]*m[1,1]-m[0,1]*m[1,0]
-
-    determinant = galois.Poly([0],field=GF)
-    
-    for c in range(len(m)):
-        
-        minor=m[0,c]*getMatrixDeterminant(get_matrix_minor(m,0,c),GF.order)
-        
-        determinant= determinant+ minor
-        
-    return determinant
-
-
-
-
-
-
-
-
 def circular_shift_matrix(matrix, shift_rows, shift_cols):
     """
     Performs a circular shift on a matrix.
@@ -51,50 +17,6 @@ def circular_shift_matrix(matrix, shift_rows, shift_cols):
     """
     shifted_matrix = np.roll(matrix, shift=(shift_rows, -shift_cols), axis=(0, 1))
     return shifted_matrix
-
-
-
-
-
- #parallel speeds up computation only over very large matrices
-# M is a mxn matrix binary matrix 
-# all elements in M should be uint8 
-def gf2elim(M):
-
-    m,n = M.shape
-
-    i=0
-    j=0
-
-    while i < m and j < n:
-        
-        # find value and index of largest element in remainder of column j
-        k = np.argmax(M[i:, j]) +i
-
-        # swap rows
-      
-        temp = np.copy(M[k])
-        M[k] = M[i]
-        M[i] = temp
-
-
-        aijn = M[i, j:]
-
-        col = np.copy(M[:, j]) #make a copy otherwise M will be directly affected
-
-        col[i] = 0 #avoid xoring pivot row with itself
-
-        flip = np.outer(col, aijn)
-
-        M[:, j:] = M[:, j:] ^ flip
-
-        i += 1
-        j +=1
-
-    return M
-
-
-
 
 def lift(matrix,G):
     
