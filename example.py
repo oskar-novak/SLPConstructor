@@ -23,7 +23,7 @@ p6=galois.Poly([0],field=GF)
 H=np.array([[p4,p3,p5],[p3,p4,p3]])
 
 
-Hx,Hz,Gx,Gz,Lx,Lz=SLP(H,3)
+Sx,Sz,Gx,Gz,Lx,Lz=SLP(H,3)
 
 
 
