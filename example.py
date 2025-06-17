@@ -1,4 +1,5 @@
 import galois
+import numpy as np
 GF = galois.GF(2)
 
 #Define Polynomials 
