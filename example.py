@@ -1,5 +1,10 @@
+
 import galois
 import numpy as np
+import itertools
+from itertools import permutations
+
+
 GF = galois.GF(2)
 
 #Define Polynomials 
