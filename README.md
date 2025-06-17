@@ -3,8 +3,7 @@ A package for Constructing Subsystem Lifted Product Codes from a Base Matrix
 
 In our GNARSIL paper,  https://ieeexplore.ieee.org/document/10821364, we introduced the concept of Subsystem Lifted Product Codes or SLP codes. A More in-depth view SLP codes can be found here:
 
-https://wp.optics.arizona.edu/opti646/wp-content/uploads/sites/55/2022/11/topological_quantum_computing.pdf
-
+https://wp.optics.arizona.edu/alumni/wp-content/uploads/sites/113/2024/12/onovakthesis.pdf
 
 These are exciting codes due to their QLDPC nature*. They can be seen as natural extensions of Subsystem Hypergraph Product (SHP) codes.
 
