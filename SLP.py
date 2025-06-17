@@ -19,8 +19,8 @@ def SLP(H,Lift_Size):
                 baseIdentity[i,j]=p0
     
     
-    Hx=lift(np.kron(H,G),Lift_Size)
-    Hz=lift(np.kron(G,H),Lift_Size)
+    Sx=lift(np.kron(H,G),Lift_Size)
+    Sz=lift(np.kron(G,H),Lift_Size)
 
     Gx=lift(np.kron(H,baseIdentity),Lift_Size)
     Gz=lift(np.kron(baseIdentity,H),Lift_Size)
@@ -28,6 +28,6 @@ def SLP(H,Lift_Size):
     Lx=lift(np.kron(baseIdentity,G),Lift_Size)
     Lz=lift(np.kron(G,baseIdentity),Lift_Size)
 
-    return Hx, Hz, Gx, Gz, Lx, Lz
+    return Sx, Sz, Gx, Gz, Lx, Lz
 
     
