@@ -72,7 +72,7 @@ def findGenerator(H,G):
   extrarow=np.array(extrarow)
     
   perms = np.array(list(set(permutations(extrarow))))
-  
+  assert extra_rows<perms.shape[0], "Base Matrix has too many linearly dependent rows over Polynomial Ring." 
           
   i=0 
     
