@@ -11,10 +11,10 @@ Our package is very simple to use:
 
   1. Build a Base Matrix using np arrays and Galois Polynomial Objects. The Field should always be set to GF2 inside of each object instance.
 
-  2. call SLP with the base matrix and Lift size L as shown.
+  2. Call SLP with the base matrix and Lift size L as shown. This will output the entire construction, including closed-form Logical Generators, Gauge Operators, and Stabilizers. 
 
   3. Have Fun!!
 
-Please Cite the GNARSIL paper if you use this package for publication!!!
+!!!Please Cite the GNARSIL paper if you use this package for publication!!!
 
 * The gauges are QLDPC, Stabilizers are not.
