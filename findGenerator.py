@@ -1,8 +1,3 @@
-import galois
-import numpy as np
-import itertools
-from itertools import permutations
-
 
 def findGenerator(H,G):
 
@@ -72,20 +67,35 @@ def findGenerator(H,G):
   extrarow=np.array(extrarow)
     
   perms = np.array(list(set(permutations(extrarow))))
-  assert extra_rows<perms.shape[0], "Base Matrix has too many linearly dependent rows over Polynomial Ring." 
-          
-  i=0 
-    
-  while extra_rows>0:
-      
-      Generator=np.insert(Generator,Generator.shape[0] ,perms[i,:],axis= 0)
-      
-      binaryGen=lift(Generator,G)
-      
-      extra_rows=G*Gen_rows-rankMat(binaryGen)
-      i+=1
   
 
+  assert extra_rows<perms.shape[0], "Base Matrix has too many linearly dependent rows over Polynomial Ring." 
+    
+  
+  good_rows=[]
+    
+  for i in range(perms.shape[0]):
+      
+      
+      checkArray=lift(H@conjugate(np.asmatrix(perms[i,:]),G),G)
+      if np.all(checkArray==0):
+         good_rows.append(i)
+
+  if extra_rows<=len(good_rows):
+      
+      Generator=np.insert(Generator,Generator.shape[0] ,perms[good_rows[:extra_rows],:],axis= 0)
+      
+  else:
+      
+      Generator=np.insert(Generator,Generator.shape[0] ,perms[good_rows,:],axis= 0)
+      
+    
+    
+  binaryGen=lift(Generator,G)
+    
+  if G*Gen_rows-rankMat(binaryGen)>0:
+      print("!!!Found Sub Code Generator Matrix with Rank Deficiency {}!!!".format(G*Gen_rows-rankMat(binaryGen)))
+            
 
   return Generator
         
