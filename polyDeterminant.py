@@ -24,7 +24,7 @@ def getMatrixDeterminant(m):
     
     for c in range(len(m)):
         
-        minor=m[0,c]*getMatrixDeterminant(get_matrix_minor(m,0,c),GF.order)
+        minor=m[0,c]*getMatrixDeterminant(get_matrix_minor(m,0,c))
         
         determinant= determinant+ minor
         
