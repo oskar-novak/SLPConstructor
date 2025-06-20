@@ -13,10 +13,10 @@ Our package is very simple to use:
 
   2. Call SLP with the base matrix and Lift size L as shown. This will output the entire construction, including  Logical Generator Matrices (not in standard form), Gauge Operators, and Stabilizers.
      
-  4. !**You will need to use a package like **stac** (for now) to clean up and find the standard form logical generators from the given generator matrices LX, LZ. 
+  4. !!!You will need to use a package like **stac** (for now) to clean up and find the standard form logical generators from the given generator matrices LX, LZ. 
      
-  6. !**The stabilizers will have a few linearly dependent rows necessary to ensure full rank in binary.
-  7.!** These past two conditions are an artifact of the method used for computing the Base Generator Matrix over the polynomial ring, which may not always be simplified to standard form over the ring.
+  6. !!!The stabilizers will have a few linearly dependent rows necessary to ensure full rank in binary.
+  7. !!!These past two conditions are an artifact of the method used for computing the Base Generator Matrix over the polynomial ring, which may not always be simplified to standard form over the ring.
 
   8. Have Fun!!
 
