@@ -11,9 +11,14 @@ Our package is very simple to use:
 
   1. Build a Base Matrix using np arrays and Galois Polynomial Objects. The Field should always be set to GF2 inside of each object instance.
 
-  2. Call SLP with the base matrix and Lift size L as shown. This will output the entire construction, including closed-form Logical Generators, Gauge Operators, and Stabilizers. 
+  2. Call SLP with the base matrix and Lift size L as shown. This will output the entire construction, including  Logical Generator Matrices (not in standard form), Gauge Operators, and Stabilizers.
+     
+  4. !**You will need to use a package like **stac** (for now) to clean up and find the standard form logical generators from the given generator matrices LX, LZ. 
+     
+  6. !**The stabilizers will have a few linearly dependent rows necessary to ensure full rank in binary.
+  7.!** These past two conditions are an artifact of the method used for computing the Base Generator Matrix over the polynomial ring, which may not always be simplified to standard form over the ring.
 
-  3. Have Fun!!
+  8. Have Fun!!
 
 !!!Please Cite the GNARSIL paper if you use this package for publication!!!
 
