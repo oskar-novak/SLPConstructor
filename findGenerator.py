@@ -28,7 +28,7 @@ def findGenerator(H,G):
             Generator[i,j]=galois.Poly([0],field=GF)
            
             
-            break
+            continue
         
         partialH=np.delete(H.copy(), j, axis=1)
         
