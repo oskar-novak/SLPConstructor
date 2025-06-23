@@ -19,7 +19,7 @@ def findGenerator(H,G):
   
   all_combos = np.array(list(itertools.combinations(seed,num_rows+1)))
  
-
+  
 
  
   for i in  range(Gen_rows):
@@ -55,8 +55,9 @@ def findGenerator(H,G):
        
   
   binaryGen=lift(Generator,G)
+  liftH=lift(H,G)
 
-  extra_rows=G*Gen_rows-rankMat(binaryGen)
+  extra_rows=(liftH.shape[1]-rankMat(liftH))-rankMat(binaryGen)
     
   nonzero_piece= [1] * G
     
@@ -106,7 +107,7 @@ def findGenerator(H,G):
     
   binaryGen=lift(Generator,G)
     
-  if G*Gen_rows-rankMat(binaryGen)>0:
+  if (liftH.shape[1]-rankMat(liftH))-rankMat(binaryGen)>0:
       print("!!!Found Sub Code Generator Matrix with Rank Deficiency {}!!!".format(G*Gen_rows-rankMat(binaryGen)))
           
   
