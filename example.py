@@ -29,7 +29,7 @@ print(np.all(lift(H@conjugate(findGenerator(H,3),3),3)==0))
 print(np.all(Sx3@Sz3.transpose()%2==0))
 
 
-#Tanner's Code -> SLP L=31 [775,128,20]* H is slightly under rank
+#Tanner's Code -> SLP L=31 [775,124,20]
 
 p1=galois.Poly([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],field=GF)
 p2=galois.Poly([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],field=GF)
