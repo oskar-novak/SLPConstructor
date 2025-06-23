@@ -19,7 +19,7 @@ def findGenerator(H,G):
   
   all_combos = np.array(list(itertools.combinations(seed,num_rows+1)))
  
-  np.random.shuffle(all_combos)
+
 
  
   for i in  range(Gen_rows):
