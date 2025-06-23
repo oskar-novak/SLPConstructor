@@ -10,17 +10,17 @@ GF = galois.GF(2)
 #Define Polynomials 
 
 #See Galois README for Instructions
-p1=galois.Poly([1,1,1],field=GF)
-p2=galois.Poly([0,1,1],field=GF)
-p3=galois.Poly([0,1,0],field=GF)
-p4=galois.Poly([1,0,0],field=GF)
-p5=galois.Poly([1],field=GF)
-p6=galois.Poly([0],field=GF)
+
+
+p1=galois.Poly([0,1,0],field=GF)
+p2=galois.Poly([1,0,0],field=GF)
+p0=galois.Poly([1],field=GF)
+
 
 #!!!!ALWAYS GF2 for field!!!!
 
 #Define Base Matrix
-H=np.array([[p4,p3,p5],[p3,p4,p3]])
+H=np.array([[p2,p1,p0],[p1,p2,p1]])
 
 
 Sx3,Sz3,Gx3,Gz3,Lx3,Lz3=SLP(H,3)
