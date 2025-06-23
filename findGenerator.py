@@ -19,28 +19,41 @@ def findGenerator(H,G):
   
   all_combos = np.array(list(itertools.combinations(seed,num_rows+1)))
  
+  np.random.shuffle(all_combos)
+
+ 
   for i in  range(Gen_rows):
 
     for j in range(num_cols):
+        
 
         if j not in all_combos[i]:
+           
         
             Generator[i,j]=galois.Poly([0],field=GF)
            
             
             continue
+        temp=all_combos[i].copy()
+        temp=temp[temp != j]
         
-        partialH=np.delete(H.copy(), j, axis=1)
+        
+        partialH=H.copy()
+        partialH=partialH[:,temp]
+        
+        
         
         
         ciT=getMatrixDeterminant(partialH)
+        
+      
         
         ci=singleconjugate(ciT,G)
         
         
         Generator[i,j]=ci
        
- 
+  
   binaryGen=lift(Generator,G)
 
   extra_rows=G*Gen_rows-rankMat(binaryGen)
@@ -73,7 +86,7 @@ def findGenerator(H,G):
     
   
   good_rows=[]
-    
+  
   for i in range(perms.shape[0]):
       
       
@@ -95,8 +108,8 @@ def findGenerator(H,G):
     
   if G*Gen_rows-rankMat(binaryGen)>0:
       print("!!!Found Sub Code Generator Matrix with Rank Deficiency {}!!!".format(G*Gen_rows-rankMat(binaryGen)))
-            
-
+          
+  
   return Generator
         
           
