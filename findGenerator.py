@@ -108,7 +108,7 @@ def findGenerator(H,G):
   binaryGen=lift(Generator,G)
     
   if (liftH.shape[1]-rankMat(liftH))-rankMat(binaryGen)>0:
-      print("!!!Found Sub Code Generator Matrix with Rank Deficiency {}!!!".format(G*Gen_rows-rankMat(binaryGen)))
+      print("!!!Found Sub Code Generator Matrix with Rank Deficiency {}!!!".format((liftH.shape[1]-rankMat(liftH))-rankMat(binaryGen)))
           
   
   return Generator
