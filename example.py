@@ -61,8 +61,8 @@ print(np.all(SxT@SzT.transpose()%2==0))
 
 
 #Finding Logical Generators:
-Lx=GF(LxT)
-Lz=GF(LzT)
+Lx=GF(LxT.astype(int))
+Lz=GF(LzT.astype(int))
 
 Lx=Lx.row_reduce()
 Lz=Lz.row_reduce()
@@ -70,8 +70,8 @@ Lz=Lz.row_reduce()
 maskX=np.all(Lx == 0, axis=1)
 maskZ=np.all(Lz == 0, axis=1)
 
-Lx=Lx[~mask]
-Lz=Lz[~mask]
+Lx=Lx[~maskX]
+Lz=Lz[~maskZ]
 Lx=Lx.view(np.ndarray)
 Lz=Lz.view(np.ndarray)
 
