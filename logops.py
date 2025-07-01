@@ -31,8 +31,9 @@ def logOps(Normalizer):
         for j in range(i,Normalizer.shape[0]):
             if j==i or j==indices_of_one[0]:
                 continue
-            Normalizer[j,:]=(Normalizer[indices_of_one[0],:]*symplecticMatrix(Normalizer[i,:],Normalizer[j,:])+Normalizer[j,:]) %2
-            Normalizer[j,:]=((Normalizer[i,:]*symplecticMatrix(Normalizer[indices_of_one[0],:],Normalizer[j,:])+
+            Normalizer[j,:]=(Normalizer[indices_of_one[0],:]*(Normalizer[i,:]@np.fft.fftshift(Normalizer[j,:]).transpose()%2)+ 
+            Normalizer[j,:]) %2
+            Normalizer[j,:]=((Normalizer[i,:]*(Normalizer[indices_of_one[0],:]@np.fft.fftshift(Normalizer[j,:]).transpose()%2)+
             Normalizer[j,:])%2)
            
 
