@@ -1,20 +1,11 @@
-def symplecticMatrix(x, y): #compact way to find commutativity relations between Pauli Ops
-    z=np.vstack((x,y))
-    num_rows, num_cols = z.shape
-    n_qubits = num_cols // 2
+def logOps(Normalizer):
+    n_qubits=Normalizer.shape[1]//2
     V = np.block([
             [np.zeros((n_qubits, n_qubits)), np.eye(n_qubits)],
-            [np.eye(n_qubits), np.zeros((n_qubits, n_qubits))]
-    ])
-    return (x @ V @ y.T) % 2
-
-
-
-
-def logOps(Normalizer):
+            [np.eye(n_qubits), np.zeros((n_qubits, n_qubits))]])
     logicalOperators = np.empty((0, Normalizer.shape[1]))
     for i in range(Normalizer.shape[0]):
-        check=symplecticMatrix(Normalizer,Normalizer[i,:])
+        check=(Normalizer@V@Normalizer[i,:].T)%2
         if np.all(check == 0):
             continue
         indices_of_one = np.argwhere(check == 1)
@@ -38,4 +29,3 @@ def logOps(Normalizer):
            
 
     return np.unique(logicalOperators, axis=0)
-            
