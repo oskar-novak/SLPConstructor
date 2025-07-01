@@ -60,4 +60,30 @@ print(np.all(SxT@SzT.transpose()%2==0))
 #Can scale to very high lift sizes and codes
 
 
+#Finding Logical Generators:
+Lx=GF(LxT)
+Lz=GF(LzT)
+
+Lx=Lx.row_reduce()
+Lz=Lz.row_reduce()
+
+maskX=np.all(Lx == 0, axis=1)
+maskZ=np.all(Lz == 0, axis=1)
+
+Lx=Lx[~mask]
+Lz=Lz[~mask]
+Lx=Lx.view(np.ndarray)
+Lz=Lz.view(np.ndarray)
+
+zeros=np.zeros((Lx.shape[0],Lx.shape[1]))
+Lx=np.hstack((Lx,zeros))
+Lz=np.hstack((zeros,Lz))
+
+Normalizer=np.vstack((Lx,Lz))
+
+L=logOps(Normalizer)
+
+print(symplecticMatrix(L,L))
+
+
 
