@@ -13,7 +13,7 @@ Our package is very simple to use:
 
   2. Call SLP with the base matrix and Lift size L as shown. This will output the entire construction, including  Logical Generator Matrices (not in standard form), Gauge Operators, and Stabilizers.
      
-  4. !!!You will need to use the logops script provided (or another one) to get standard form logical generators from the given generator matrices LX, LZ!!!
+  4. !!!You will need to use the logOps script provided (or another similar script) to get logical generators that form symplectic pairs from the given generator matrices LX, LZ!!!
      
   6. !!!The stabilizers will have a few linearly dependent rows necessary to ensure full rank in binary!!!
   7. !!!These past two conditions are an artifact of the method used for computing the Base Generator Matrix over the polynomial ring, which may not always be simplified to standard form over the ring!!!
