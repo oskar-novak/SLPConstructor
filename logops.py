@@ -20,8 +20,8 @@ def logOps(Normalizer):
         
         logicalOperators= np.append(logicalOperators, logop1, axis=0)
         logicalOperators= np.append(logicalOperators, logop2, axis=0)
-        for j in range(i,Normalizer.shape[0]):
-            if j==i or j==indices_of_one[0]:
+        for j in range(i+1,Normalizer.shape[0]):
+            if j==indices_of_one[0]:
                 continue
             Normalizer[j,:]=(Normalizer[indices_of_one[0],:]*(Normalizer[i,:]@np.fft.fftshift(Normalizer[j,:]).transpose()%2)+ 
             Normalizer[j,:]) %2
